@@ -1,0 +1,27 @@
+/* .App {
+  text-align: center;
+} */
+
+.recipe-picture
+{
+  height: 540px;
+  width: 550px;
+  object-fit: cover;
+}
+.recepi-name
+{
+  font-size: 48px;
+  
+}
+
+.recipe-container
+{
+  background: orange;
+  width: 550px;
+}
+
+body
+{
+  background: whitesmoke;
+}
+

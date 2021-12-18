@@ -1,7 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 function App() {
   return (
@@ -18,17 +16,11 @@ function RecipeList()
 
   // http://localhost:8000/recipes
 
-  const [recipe,setRecipe]=useState([])
+  const recipes=[];
 
-  useEffect(()=>
-  {
-    fetch("http://localhost:8000/recipes")
+  fetch("http://localhost:8000/recipes")
   .then(data=>data.json())
-  .then(recepies=>setRecipe(recepies))
-
-  });
-
-  
+  .then(recepies=>console.log(recepies))
 
 
   return (

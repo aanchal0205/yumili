@@ -22,13 +22,12 @@ function RecipeList()
 
   useEffect(()=>
   {
-    fetch("http://localhost:8000/recipes")
+
+  })
+
+  fetch("http://localhost:8000/recipes")
   .then(data=>data.json())
   .then(recepies=>setRecipe(recepies))
-
-  });
-
-  
 
 
   return (

@@ -20,15 +20,9 @@ function RecipeList()
 
   const [recipe,setRecipe]=useState([])
 
-  useEffect(()=>
-  {
-    fetch("http://localhost:8000/recipes")
+  fetch("http://localhost:8000/recipes")
   .then(data=>data.json())
-  .then(recepies=>setRecipe(recepies))
-
-  });
-
-  
+  .then(recepies=>console.log(recepies))
 
 
   return (

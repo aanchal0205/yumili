@@ -23,7 +23,6 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: rgb(0 0 0/ 4%) 0px 1px 11px 1px;
-  transition: 0.2s;
 }
 
 .recipe-container:hover
@@ -35,14 +34,5 @@ body
 {
   background: whitesmoke;
   margin: 50px;
-  font-family: Roboto;
-}
-
-.recipe-list
-{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
 }
 
