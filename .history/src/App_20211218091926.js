@@ -27,8 +27,7 @@ function RecipeList()
 
   useEffect(()=>
   {
-    fetch(`${API}/recipes`,{method: "GET",headers:{"x-auth-token": localStorage.getItem("token")},
-  })
+    fetch(`${API}/recipes`)
   .then(data=>data.json())
   .then(recepies=>setRecipe(recepies))
 
@@ -55,7 +54,7 @@ function Login()
 {
   const{handleSubmit,values,handleChange,handleBlur,errors,touched}=
   useFormik({
-    initialValues:{username:"Aanchal",password:"password@123"},
+    initialValues:{username:"nice",password:""},
     onSubmit:(user)=>
     {
       console.log("Sending server values",user);

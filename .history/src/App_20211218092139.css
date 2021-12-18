@@ -52,11 +52,3 @@ body
   font-size: 60px;
 }
 
-.login-form
-{
-  margin: 48px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-

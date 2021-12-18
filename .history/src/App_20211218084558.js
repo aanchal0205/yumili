@@ -8,11 +8,10 @@ import { useFormik } from 'formik';
 const API="http://localhost:8000";
 
 function App() {
-  const token=localStorage.getItem("token")
   return (
     <div className="App">
      <Login/> 
-     {token?<RecipeList/>:""}
+     {/* <RecipeList/> */}
        
     </div>
   );
@@ -27,8 +26,7 @@ function RecipeList()
 
   useEffect(()=>
   {
-    fetch(`${API}/recipes`,{method: "GET",headers:{"x-auth-token": localStorage.getItem("token")},
-  })
+    fetch(`${API}/recipes`)
   .then(data=>data.json())
   .then(recepies=>setRecipe(recepies))
 
@@ -55,28 +53,20 @@ function Login()
 {
   const{handleSubmit,values,handleChange,handleBlur,errors,touched}=
   useFormik({
-    initialValues:{username:"Aanchal",password:"password@123"},
-    onSubmit:(user)=>
+    initialValues:{username:"nice",password:""},
+    onSubmit:(values)=>
     {
-      console.log("Sending server values",user);
-      signIn(user);
-    },
-  });
-  const signIn=(user)=>
+      console.log("Sending server values",values);
+    }
+  })
+  const signIn=()=>
   {
     // http://localhost:8000/users/login
-    fetch(`${API}/users/login`, {
-      method:"POST",
-       headers: {'Content-Type':'application/json'},
-       body: JSON.stringify(user),
-       })
-    .then(data=>data.json())
-    .then(data=>localStorage.setItem("token",data.token))
+    fetch(`${API}/users/login`, {method:'POST',body:JSON.stringify()})
     
   };
-
   return (
-    <form onSubmit={handleSubmit} className='login-form'>
+    <form onSubmit={handleSubmit}>
       <input placeholder='Enter your name'
       id="username"
       name="username"
@@ -91,7 +81,7 @@ function Login()
       value={values.password}
       onChange={handleChange}
       onBlur={handleBlur}></input>
-      <button type="submit" >Login</button>
+      <button onClick={signIn} >Login</button>
     </form>
 
   );

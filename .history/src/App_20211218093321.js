@@ -27,8 +27,7 @@ function RecipeList()
 
   useEffect(()=>
   {
-    fetch(`${API}/recipes`,{method: "GET",headers:{"x-auth-token": localStorage.getItem("token")},
-  })
+    fetch(`${API}/recipes`)
   .then(data=>data.json())
   .then(recepies=>setRecipe(recepies))
 
